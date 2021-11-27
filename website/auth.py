@@ -50,18 +50,24 @@ def sign_up():
             flash('Last name field must not be empty.', category='error')
         elif len(email) < 5:
             flash('Email must be greater than 4 characters.', category='error')
-        elif len(co2emissions) < 2:
+        elif len(co2emissions) < 1:
             flash('CO2 emissions field must not be empty.', category='error')
         elif len(password1) < 7:
             flash('Password must be greater than 6 characters.', category='error')
         elif password1 != password2:
             flash('Passwords must match.', category='error')
         else:
-            new_user = User(email=email, first_Name=first_Name, last_Name=last_Name, co2emissions=co2emissions, password=generate_password_hash(password1, method='sha256'))
+            trees = int(float(co2emissions)/(48*0.005))
+            one_year = round(trees/12, 2)
+            two_years = round(trees/24, 2)
+            three_years = round(trees/36, 2)
+            ten_dollar = round(trees/120,1)
+            
+            new_user = User(email=email, first_Name=first_Name, last_Name=last_Name, co2emissions=co2emissions, password=generate_password_hash(password1, method='sha256'), trees=trees, one_year=one_year, two_years=two_years, three_years=three_years, ten_dollar=ten_dollar)
             db.session.add(new_user)
             db.session.commit()
-            login_user(user, remember=True)
+            login_user(new_user, remember=True)
             flash('Your carbon offset goal has been calculated!', category='success')            
-            return redirect(url_for("views.home"))
+            return redirect(url_for('views.home'))
 
-    return render_template("signup.html", user=current_user)
+    return render_template("sign_up.html", user=current_user)
