@@ -1,11 +1,13 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
     %}
     <h1 align="center">RESULTS</h1>
-    <form method="POST">
-      <textarea name="note" id="note" class="form-control"></textarea>
-      <br />
-      <div align="center">
-        <button type="submit" class="btn btn-primary">Add Note</button>
-      </div>
-    </form>
+    <p class="lead">To truly be Carbon Neutral you would need to plant <h3>{{ user.trees }} trees</h3></p>
+    <p class="lead">To plant all these trees within one year you'd need to donate a monthly amount of<h3>{{ user.one_year }} dollars</h3></p>
+    <p class="lead">To plant them within 2 years you'd need to donate a monthly amount of<h3>{{ user.two_years }} dollars</h3></p>
+    <p class="lead">To plant them within 3 years you'd need to donate a monthly amount of<h3>{{ user.three_years }} dollars</h3></p>
+    <p class="lead">However if that's too much, you might want to donate 10$ a month. But that would take you...<h3>{{ user.ten_dollar }} years to neutralize your carbon output</h3></p>
+    <p class="lead">Now it's up to you to decide which road you want to take. Time to take action! Please donate below to one of these platforms:</p>
+    <button onclick="window.location.href= 'https://teamtrees.org/';" target="_blank" rel="noopener noreferrer" type="button"  class="btn btn-success">Team Trees</button>       <button onclick="window.location.href= 'https://onetreeplanted.org/products/plant-trees?variant=31367539589182';" target="_blank" rel="noopener noreferrer" type="button" class="btn btn-warning">OneTreePlanted</button>
     {% endblock %}
+
+    

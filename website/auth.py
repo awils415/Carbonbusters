@@ -57,10 +57,10 @@ def sign_up():
         elif password1 != password2:
             flash('Passwords must match.', category='error')
         else:
-            trees = int(float(co2emissions)/(48*0.005))
-            one_year = round(trees/12, 2)
-            two_years = round(trees/24, 2)
-            three_years = round(trees/36, 2)
+            trees = int(float(co2emissions)*(41.67))
+            one_year = round(trees/12, 0)
+            two_years = round(trees/24, 0)
+            three_years = round(trees/36, 0)
             ten_dollar = round(trees/120,1)
             
             new_user = User(email=email, first_Name=first_Name, last_Name=last_Name, co2emissions=co2emissions, password=generate_password_hash(password1, method='sha256'), trees=trees, one_year=one_year, two_years=two_years, three_years=three_years, ten_dollar=ten_dollar)
