@@ -1,14 +1,16 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
     %}
+    <body style="background-color:rgb(149, 202, 252);">
     <h1 align="center">RESULTS</h1>
-    <h3>Hello {{ user.first_Name }} {{ user.last_Name }}!</h3>
-    <p class="lead">Thank you for using our platform. To truly be Carbon Neutral you would need to plant <h3>{{ user.trees }} trees</h3></p>
-    <p class="lead">To plant all these trees within one year you'd need to donate a monthly amount of<h3>{{ user.one_year }} dollars</h3></p>
-    <p class="lead">To plant them within 2 years you'd need to donate a monthly amount of<h3>{{ user.two_years }} dollars</h3></p>
-    <p class="lead">To plant them within 3 years you'd need to donate a monthly amount of<h3>{{ user.three_years }} dollars</h3></p>
-    <p class="lead">However if that's too much, you might want to donate 10$ a month. But that would take you...<h3>{{ user.ten_dollar }} years to neutralize your carbon output</h3></p>
+    <h4>Hello {{ user.first_Name }} {{ user.last_Name }}! </h4>
+    <p class="lead">Thank you for using our platform. To truly be carbon neutral you would need to plant <b style="font-size:130%;">{{ user.trees }}</b> trees in your lifetime.</p>
+    <p class="lead">To plant all these trees within one year you'd need to donate a monthly amount of <b style="font-size:130%;">{{ user.one_year }}</b> dollars.</p>
+    <p class="lead">To plant them within 2 years you'd need to donate a monthly amount of <b style="font-size:130%;">{{ user.two_years }}</b> dollars.</p>
+    <p class="lead">To plant them within 3 years you'd need to donate a monthly amount of <b style="font-size:130%;">{{ user.three_years }}</b> dollars.</p>
+    <p class="lead">However, if that's too much, you might want to donate just 10$ a month, but that would take you <b style="font-size:130%;">{{ user.ten_dollar }}</b> years to neutralize your carbon output.</p>
     <p class="lead">Now it's up to you to decide which road you want to take. Time to take action! Please donate below to one of these platforms:</p>
     <button onclick="window.location.href= 'https://teamtrees.org/';" target="_blank" rel="noopener noreferrer" type="button"  class="btn btn-success">Team Trees</button>       <button onclick="window.location.href= 'https://onetreeplanted.org/products/plant-trees?variant=31367539589182';" target="_blank" rel="noopener noreferrer" type="button" class="btn btn-warning">OneTreePlanted</button>
+    <br><br>
+    <p style="text-align:center;"><img src="https://legendpower.com/wp-content/uploads/2014/08/Footprint.png" alt="Carbon Footprint" width="250" height="400" class="center"></p>
+    </body>
     {% endblock %}
-
-    
